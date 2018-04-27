@@ -22,9 +22,5 @@ pre_build:
       - ./jfrog rt bce codestar-demo-java-app $CODEBUILD_BUILD_ID
       - ./jfrog rt bp codestar-demo-java-app $CODEBUILD_BUILD_ID
 artifacts:
-  type: zip
   files:
-    - 'appspec.yml'
-    - 'scripts/start_server'
-    - 'scripts/install_dependencies'
-    - 'target/ROOT.war'    
+    - target/my-app-1.0-SNAPSHOT.jar
