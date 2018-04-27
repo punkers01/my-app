@@ -1,7 +1,7 @@
 version: 0.2
 env:
   parameter-store:
-    ARTIFACTORY_API_KEY: "ARTIFACTORY_CREDENTIALS"
+    ARTIFACTORY_API_KEY: ${ARTIFACTORY_API_KEY}
 phases:
 pre_build:
     commands:
@@ -18,9 +18,9 @@ pre_build:
     commands:
       - echo Entering post_build phase...
       - echo Build completed on `date`i
-      - ./jfrog rt u "*.war" libs-release-local --build-name=my-app --build-number=$CODEBUILD_BUILD_ID --flat=false
-      - ./jfrog rt bce codestar-demo-java-app $CODEBUILD_BUILD_ID
-      - ./jfrog rt bp codestar-demo-java-app $CODEBUILD_BUILD_ID
+      - ./jfrog rt u "*.jar" libs-release-local --build-name=my-app --build-number=$CODEBUILD_BUILD_ID --flat=false
+      - ./jfrog rt bce my-app $CODEBUILD_BUILD_ID
+      - ./jfrog rt bp  my-app  $CODEBUILD_BUILD_ID
 artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
