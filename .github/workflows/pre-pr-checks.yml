@@ -22,4 +22,4 @@ jobs:
       - uses: mshick/add-pr-comment@v2
         with:
           message: |
-            **If you haven't signed the CLA you need to do that before making any code changes. Check the README.md file.**
+            **If you haven't signed the [CLA] you need to do that before making any code changes. Check the README.md file.**
