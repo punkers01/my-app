@@ -24,6 +24,9 @@ jobs:
         with:
           url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
           method: 'GET'
+      - name: Show Response
+        run: |
+              echo ${{ steps.getuser.outputs.status }}    
         if: steps.getuser.outputs.status != 200 
       - uses: mshick/add-pr-comment@v2
         with:
