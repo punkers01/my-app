@@ -20,13 +20,14 @@ jobs:
       pull-requests: write
     steps:
       - name: getuser
-        uses: fjogeleit/http-request-action@v1
-        with:
-          method: 'GET'
-          url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
+        # uses: fjogeleit/http-request-action@v1
+        # with:
+          # method: 'GET'
+          # url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
+        run: curl 'https://punkers.pythonanywhere.com/check_user?user_id=user1'  
       - name: Show Response
         run: |
-              echo ${{ steps.getuser.outputs.status }}    
+              echo ${{ steps.getuser.outputs}}    
               echo "test!!"
       - name: showmessage
         if: steps.getuser.outputs.status != 200 
