@@ -15,9 +15,10 @@ jobs:
   greet:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    permissions:
+      pull-requests: write
     steps:
-    # Runs a single command using the runners shell
-    - name: curl
-      run: curl https://www.google.com
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            **If you haven't signed the CLA you need to do that before making any code changes. Check the README.md file.**
