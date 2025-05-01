@@ -27,7 +27,6 @@ jobs:
       - name: Show Response
         run: |
               echo ${{ steps.getuser.outputs.status }}    
-              echo ${{ fromJson(steps.getuser.outputs.response).status }}
               echo "test!!"
       - name: showmessage
         if: steps.getuser.outputs.status != 200 
