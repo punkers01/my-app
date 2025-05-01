@@ -22,6 +22,7 @@ jobs:
       - name: getuser
         uses: fjogeleit/http-request-action@v1
         with:
+          method: 'GET'
           url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
       - name: Show Response
         run: |
