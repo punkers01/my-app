@@ -27,8 +27,11 @@ jobs:
       - name: Show Response
         run: |
               echo ${{ steps.getuser.outputs.status }}    
+              echo ${{ fromJson(steps.getuser.outputs.response).status }}
+              echo "test!!"
+      - name: showmessage
         if: steps.getuser.outputs.status != 200 
-      - uses: mshick/add-pr-comment@v2
+        uses: mshick/add-pr-comment@v2
         with:
           message: |
             **If you haven't signed the [CLA] you need to do that before making any code changes. Check the README.md file.**
