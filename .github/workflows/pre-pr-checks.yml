@@ -23,7 +23,6 @@ jobs:
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
-          method: 'GET'
       - name: Show Response
         run: |
               echo ${{ steps.getuser.outputs.status }}    
