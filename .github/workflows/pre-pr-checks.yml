@@ -20,17 +20,17 @@ jobs:
       pull-requests: write
     steps:
       - id: getuser
-        # uses: fjogeleit/http-request-action@v1
-        # with:
-          # method: 'GET'
-          # url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
-        run:  curl 'https://punkers.pythonanywhere.com/check_user?user_id=user1'  
+        uses: fjogeleit/http-request-action@v1
+        with:
+          method: 'GET'
+          url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
+        # run:  curl 'https://punkers.pythonanywhere.com/check_user?user_id=user1'  
       - name: Show Response
         run: |
-              echo ${{ steps.getuser.outputs}}    
+              echo ${{ steps.getuser.outputs.status}}    
               echo "test!!"
       - name: showmessage
-        if: steps.getuser.outputs != 200 
+        if: steps.getuser.outputs.status != 200 
         uses: mshick/add-pr-comment@v2
         with:
           message: |
