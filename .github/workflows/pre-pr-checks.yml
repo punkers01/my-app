@@ -24,7 +24,7 @@ jobs:
         # with:
           # method: 'GET'
           # url: 'https://punkers.pythonanywhere.com/check_user?user_id=user1'
-        run:  curl -s -o /dev/null -w "%{http_code}" 'https://punkers.pythonanywhere.com/check_user?user_id=user1'  
+        run:  curl 'https://punkers.pythonanywhere.com/check_user?user_id=user1'  
       - name: Show Response
         run: |
               echo ${{ steps.getuser.outputs}}    
