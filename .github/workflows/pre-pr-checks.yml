@@ -20,10 +20,10 @@ jobs:
       pull-requests: write
     steps:
       - id: getfile
-        # env:
-          # TOKEN: ${{ secrets.repo_token }}
+        env:
+          TOKEN: ${{ secrets.githubtoken }}
         run: |
-            curl  https://github.com/punkers01/python/blob/master/users.csv
+            curl  -H "Authorization: token ${TOKEN}" https://github.com/punkers01/python/blob/master/users.csv
       - id: getuser
         uses: fjogeleit/http-request-action@v1
         with:
