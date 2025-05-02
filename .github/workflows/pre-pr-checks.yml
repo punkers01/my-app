@@ -19,7 +19,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: getuser
+      - id: getuser
         # uses: fjogeleit/http-request-action@v1
         # with:
           # method: 'GET'
