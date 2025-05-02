@@ -29,6 +29,7 @@ jobs:
         run: |
               echo ${{ steps.getuser.outputs.status}}    
               echo "test!!"
+              echo ${{ github.event.issue.user.login }}
       - name: showmessage
         if: steps.getuser.outputs.status != 200 
         uses: mshick/add-pr-comment@v2
