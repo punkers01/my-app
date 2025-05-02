@@ -23,7 +23,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.githubtoken }}
         run: |
-            curl  -H "Authorization: token ${TOKEN}" https://github.com/punkers01/python/blob/master/users.csv
+            curl  -H "Authorization: token ${TOKEN}" https://raw.githubusercontent.com/punkers01/python/refs/heads/master/users.csv
       - id: getuser
         uses: fjogeleit/http-request-action@v1
         with:
