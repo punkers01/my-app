@@ -35,7 +35,7 @@ jobs:
               echo ${{ steps.getuser.outputs.status}}    
               echo "test!!"
               echo ${{ github.event.pull_request.user.login}}
-              echo "${{ steps.getfile.outputs.body}}"
+              echo "${{ steps.getfile.outputs}}"
       - name: showmessage
         if: steps.getuser.outputs.status != 200 
         uses: mshick/add-pr-comment@v2
